@@ -63,7 +63,7 @@ state - набор случайных символов, по которому с
 Нас интересуют поля <code>login</code>, <code>id</code> и <code>default_email</code>.<br>
 Генерируем два ключа <code>access_token</code>, <code>refresh_token</code>.<br>
 Ищем в базе данных пользователя с полем userId равным: "yandex"+<code>id</code><br>
-* Если нашли, то проверяем поле "activate" и если оно равно 1, то просто возвращем сайту <code>access_token</code> и <code>refresh_token</code> [подробнее](https://www.youtube.com/watch?v=IB9gsnlRt-4) (дполнительно зависит от языка программирования) . А если равен 0, то добавляеи в ответ поле "activate" со значение 1.
+* Если нашли, то проверяем поле "activate" и если оно равно 1, то просто возвращем сайту <code>access_token</code> и <code>refresh_token</code> [подробнее](https://www.youtube.com/watch?v=IB9gsnlRt-4) (дополнительно зависит от языка программирования и библиотеки) . А если равен 0, то добавляеи в ответ поле "activate" со значение 1.
 * Есои не нашли то, создаем запись с данными пользователя в базе данных mongodb, где <code>"/login"</code> = <code>login</code>, <code>"/id"</code> = <code>id</code>, <code>"/default_email"</code> = <code>default_email</code>,
 <code>"/refresh_token"</code> = <code>refresh_token</code>, <code>"/state"</code> = <code>state</code>:
 ```json
