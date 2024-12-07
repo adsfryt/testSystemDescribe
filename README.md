@@ -68,13 +68,16 @@ state - набор случайных символов, по которому с
 <code>"/refresh_token"</code> = <code>refresh_token</code>, <code>"/state"</code> = <code>state</code>:
 ```json
 {
-  "login": "/login", 
+  "login": "yandex/login",
   "userId": "yandex/id",
   "email": "/default_email",
   "state": "/state",
   "role": -1,
   "activate": 0,
   "disciplinesId": [],
+  "method": "yandex",
+  "refresh_token": "refresh_token",
+  "access_token": "access_token",
   "refresh_token": [ "/refresh_token" ] 
 }
 ```
