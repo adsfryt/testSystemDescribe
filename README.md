@@ -44,7 +44,7 @@ state - набор случайных символов, по которому с
 
 #### Описание
 
-Модуль принимает <code>state</code> пользователя, проверяет его наличие (когда он был создан про создании ссылки). Далее обменивает токен на два ключа доступа [подробнее](https://yandex.ru/dev/id/doc/ru/codes/code-url#token) 
+Модуль принимает <code>state</code> пользователя, проверяет его наличие (когда он был создан про создании ссылки). Далее обмениваем токен на два ключа доступа [подробнее](https://yandex.ru/dev/id/doc/ru/codes/code-url#token) 
 (access_token, refresh_token) и с их помощью модуль получает информацию о пользователех [подробнее](https://yandex.ru/dev/id/doc/ru/user-information) типа:
 ```json
 {
@@ -63,7 +63,7 @@ state - набор случайных символов, по которому с
 Нас интересуют поля <code>login</code>, <code>id</code> и <code>default_email</code>.<br>
 Генерируем два ключа <code>access_token</code>, <code>refresh_token</code>.<br>
 Ищем в базе данных пользователя с полем userId равным: "yandex"+<code>id</code><br>
-* Если нашли, то проверяем поле "activate" и если оно равно 1, то просто возвращем сайту <code>access_token</code> и <code>refresh_token</code> [подробнее](https://yandex.ru/dev/id/doc/ru/user-information). А если равен 0, то добавляеи в ответ поле "activate" со значение 1.
+* Если нашли, то проверяем поле "activate" и если оно равно 1, то просто возвращем сайту <code>access_token</code> и <code>refresh_token</code> [подробнее](https://www.youtube.com/watch?v=IB9gsnlRt-4) (дполнительно зависит от языка программирования) . А если равен 0, то добавляеи в ответ поле "activate" со значение 1.
 * Есои не нашли то, создаем запись с данными пользователя в базе данных mongodb, где <code>"/login"</code> = <code>login</code>, <code>"/id"</code> = <code>id</code>, <code>"/default_email"</code> = <code>default_email</code>,
 <code>"/refresh_token"</code> = <code>refresh_token</code>, <code>"/state"</code> = <code>state</code>:
 ```json
@@ -95,7 +95,7 @@ state - набор случайных символов, по которому с
 
 #### Описание
 
-Модуль проверяет <code>access_token</code> и<code>role</code> на корректность. Получив из <code>access_token</code>а id пользователя находим его в базе данных mongodb. Устанавливаем ему соответствующую роль и меняем поле
+Модуль проверяет <code>access_token</code> и<code>role</code> на корректность. Получив из данных <code>access_token</code>а id пользователя находим его в базе данных mongodb. Устанавливаем ему соответствующую роль и меняем поле
 "activate" на 1. Если база данных смогда изменить поля и вернула значение, то возвращаем поле <code>ok</code> со значение true, иначе false.
 
 
