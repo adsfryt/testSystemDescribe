@@ -74,7 +74,7 @@ state - набор случайных символов, по которому с
   "state": "/state",
   "role": -1,
   "activate": 0,
-  "disciplinesId": [],
+  "subjectsId": [],
   "method": "yandex",
   "refresh_token": "refresh_token",
   "access_token": "access_token",
